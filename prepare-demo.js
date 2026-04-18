@@ -14,3 +14,8 @@ const webPlaygroundPath = './demo/static/extensions/vscode-web-playground';
 
 child_process.execSync(`git clone https://github.com/microsoft/vscode-web-playground.git  ${webPlaygroundPath}`, {stdio: 'inherit'});
 
+
+fse.copyFileSync("./custom-images/code-512.png", "./demo/code-512.png");
+fse.copyFileSync("./custom-images/code-192.png", "./demo/code-192.png");
+fse.copyFileSync("./custom-images/favicon.ico", "./demo/favicon.ico");
+

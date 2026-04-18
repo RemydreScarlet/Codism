@@ -1,9 +1,9 @@
 {
 	"productConfiguration": {
-		"nameShort": "Code Web",
-		"nameLong": "Code Web",
-		"applicationName": "code-web",
-		"dataFolderName": ".vscode-web",
+		"nameShort": "Codism",
+		"nameLong": "Codism",
+		"applicationName": "codism",
+		"dataFolderName": ".codism",
 		"version": "1.66.0",
 		"extensionEnabledApiProposals": {
 			"vscode.vscode-web-playground": [
