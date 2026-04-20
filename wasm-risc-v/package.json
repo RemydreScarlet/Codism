@@ -1,0 +1,38 @@
+{
+  "name": "wasm-risc-v-terminal",
+  "displayName": "RISC-V Terminal",
+  "description": "RISC-V emulator terminal with WebAssembly",
+  "version": "1.0.0",
+  "publisher": "codism",
+  "browser": "./extension.js",
+  "engines": {
+    "vscode": "^1.66.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:test.hello",
+    "onCommand:wasm-risc-v.openTerminal"
+  ],
+  "scripts": {
+    "compile-web": "webpack --mode production"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "test.hello",
+        "title": "Test Hello",
+        "category": "Test"
+      },
+      {
+        "command": "wasm-risc-v.openTerminal",
+        "title": "Open RISC-V Terminal",
+        "category": "RISC-V"
+      }
+    ]
+  },
+  "devDependencies": {
+    "webpack-cli": "^7.0.2"
+  }
+}

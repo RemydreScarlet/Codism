@@ -1,0 +1,4 @@
+{
+  "displayName": "RISC-V Terminal",
+  "description": "RISC-V emulator terminal with WebAssembly"
+}
