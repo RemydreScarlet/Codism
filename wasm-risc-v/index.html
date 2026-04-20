@@ -53,15 +53,10 @@
         }
 
         const app = new App(riscv, terminal, {
-          debugModeEnabled: debugMode
+          debugModeEnabled: false
         });
 
-        if (debugMode) {
-          terminal.writeln('Debug mode.');
-          app.startDebugMode();
-        } else {
-          app.run();
-        }
+        app.run();
       };
 
       // From https://github.com/xtermjs/xterm.js/tree/master/addons/xterm-addon-fit
@@ -87,7 +82,6 @@
 
       const onClick = async event => {
         terminal.clear();
-
         terminal.writeln('Downloading files...');
 
         const elfResponse = await fetch(resourcePath + filename);
@@ -99,12 +93,7 @@
         if (isLinux) {
           const fsResponse = await fetch(resourcePath + 'linux/rootfs.img');
           fsBuffer = await fsResponse.arrayBuffer();
-          if (debugMode) {
-            const symbolResponse = await fetch(resourcePath + 'linux/vmlinux');
-            symbolBuffer = await symbolResponse.arrayBuffer();
-          } else {
-            symbolBuffer = new ArrayBuffer(0);
-          }
+          symbolBuffer = new ArrayBuffer(0);
         } else {
           const fsResponse = await fetch(resourcePath + 'xv6/fs.img');
           fsBuffer = await fsResponse.arrayBuffer();
