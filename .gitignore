@@ -111,3 +111,6 @@ demo/code-*
 demo/favicon.ico
 demo/manifest.json
 demo/playground.js
+
+wasm-risc-v/linux/opensbi/fw_payload.elf.gz
+wasm-risc-v/linux/rootfs.img.gz

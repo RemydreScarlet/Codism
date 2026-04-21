@@ -3,6 +3,7 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <link rel="stylesheet" href="xtermjs/xterm.css" />
     <script src="xtermjs/xterm.js"></script>
+    <script src="pako/pako.min.js"></script>
     <style>
       #terminal {
         height: 90%;
@@ -20,7 +21,7 @@
 
       let wasm;
 
-      const filename = 'linux/opensbi/fw_payload.elf';
+      const filename = 'linux/opensbi/fw_payload.elf.gz';
       const isLinux = true;
 
       const terminal = new Terminal();
@@ -85,14 +86,16 @@
         terminal.writeln('Downloading files...');
 
         const elfResponse = await fetch(resourcePath + filename);
-        const elfBuffer = await elfResponse.arrayBuffer();
+        const compressedElfBuffer = await elfResponse.arrayBuffer();
+        const elfBuffer = window.pako.inflate(new Uint8Array(compressedElfBuffer)).buffer;
 
         let fsBuffer;
         let symbolBuffer;
 
         if (isLinux) {
-          const fsResponse = await fetch(resourcePath + 'linux/rootfs.img');
-          fsBuffer = await fsResponse.arrayBuffer();
+          const fsResponse = await fetch(resourcePath + 'linux/rootfs.img.gz');
+          const compressedBuffer = await fsResponse.arrayBuffer();
+          fsBuffer = window.pako.inflate(new Uint8Array(compressedBuffer)).buffer;
           symbolBuffer = new ArrayBuffer(0);
         } else {
           const fsResponse = await fetch(resourcePath + 'xv6/fs.img');
