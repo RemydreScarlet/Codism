@@ -1,0 +1,25 @@
+name = "codism-demo"
+compatibility_date = "2024-04-21"
+pages_build_output_dir = "demo"
+
+[env.production]
+name = "codism-demo"
+
+[env.preview]
+name = "codism-demo-preview"
+
+[[env.production.pages]]
+compatibility_date = "2024-04-21"
+
+[[env.preview.pages]]
+compatibility_date = "2024-04-21"
+
+[env.production.pages.build]
+command = ""
+cwd = ""
+watch_dir = "demo"
+
+[env.preview.pages.build]
+command = ""
+cwd = ""
+watch_dir = "demo"

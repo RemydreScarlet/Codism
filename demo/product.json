@@ -18,13 +18,13 @@
 	},
 	"additionalBuiltinExtensions": [
 		{
-			"scheme": "http",
-			"authority": "localhost:8080",
+			"scheme": "https",
+			"authority": "codism-demo.pages.dev",
 			"path": "static/extensions/vscode-web-playground"
 		},
 		{
-			"scheme": "http",
-			"authority": "localhost:8080",
+			"scheme": "https",
+			"authority": "codism-demo.pages.dev",
 			"path": "static/extensions/wasm-risc-v"
 		}
 	]
