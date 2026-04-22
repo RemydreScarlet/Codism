@@ -1,6 +1,0 @@
-Cargo.lock
-target/
-cli/Cargo.lock
-cli/target
-wasm/Cargo.lock
-wasm/target
